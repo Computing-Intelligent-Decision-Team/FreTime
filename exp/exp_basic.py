@@ -22,21 +22,14 @@ class Exp_Basic(object):
         return None
 
     def _acquire_device(self):
-        # 检查是否使用GPU
         if self.args.use_gpu:
-            # 设置CUDA可见设备
             os.environ["CUDA_VISIBLE_DEVICES"] = str(
                 self.args.gpu) if not self.args.use_multi_gpu else self.args.devices
-            # 创建CUDA设备对象
             device = torch.device('cuda:{}'.format(self.args.gpu))
-            # 打印使用的GPU信息
             print('Use GPU: cuda:{}'.format(self.args.gpu))
         else:
-            # 如果不使用GPU，则使用CPU
             device = torch.device('cpu')
-            # 打印使用CPU的信息
             print('Use CPU')
-        # 返回选择的设备
         return device
     
     def _create_writer(self, log_dir):

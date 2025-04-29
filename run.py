@@ -36,18 +36,14 @@ if __name__ == '__main__':
     parser.add_argument('--checkpoints', type=str, default='./checkpoints/', help='checkpoints path')
     parser.add_argument('--results', type=str, default='./results/', help='results path')
 
-    ########################################
-    # 预测任务参数
-    ########################################
+
     parser.add_argument('--seq_len', type=int, default=96, help='Input sequence length')
     parser.add_argument('--label_len', type=int, default=48, help='Start label length')
     parser.add_argument('--pred_len', type=int, default=96, help='Prediction sequence length')
     parser.add_argument('--seasonal_patterns', type=str, default='Monthly', help='M4 dataset subset')
     parser.add_argument('--inverse', action='store_true', default=False, help='Whether to invert the output data')
 
-    ########################################
-    # 模型结构参数
-    ########################################
+
     parser.add_argument('--top_k', type=int, default=5, help='Top-k selection for TimesBlock')
     parser.add_argument('--num_kernels', type=int, default=6, help='Number of convolutional kernels in Inception module')
     parser.add_argument('--enc_in', type=int, default=1, help='Encoder input dimension')
